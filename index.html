@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>QR Generater</title>
+        <script type="text/javascript" language="javascript">
+            function generate() {
+                target = document.getElementById("output");
+                target.innerText = document.forms.qr_text_form.visitor.value + " is visiting " + document.forms.qr_text_form.host.value;
+                var img = document.getElementById("qr_place");
+                img.src = "https://chart.apis.google.com/chart?chs=200x200&cht=qr&chl=" + document.forms.qr_text_form.visitor.value + "/" + document.forms.qr_text_form.host.value;
+            }
+        </script>
+    </head>
+    <body>
+        <form id="qr_text_form" action="">
+            <p>Visitor name</p>
+            <input id="visitor" type="text"/>
+            <p>Host name</p>
+            <input id="host" type="text"/>
+            <p>Host email address</p>
+            <input id="email" type="text"/>
+            <p></p>
+            <input type="button" value="Generate" onclick="generate();" />
+        </form>
+        <hr/>
+        <div id="output"></div>
+        <img id="qr_place" src="">
+    </body>
+</html>
